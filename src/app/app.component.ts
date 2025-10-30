@@ -7,5 +7,22 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class AppComponent {
+  elementos = [
+    {
+      nombre:'Inicio',
+      ruta:'/inicio',
+      icono: 'home-outline'
+    },
+    {
+      nombre:'Componentes',
+      ruta:'/componentes',
+      icono: 'grid-outline'
+    },
+    {
+      nombre:'Nosotros',
+      ruta:'/nostros',
+      icono: 'people-outline'
+    },
+  ]
   constructor() {}
 }

@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{titulo}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-back-button slot="start" defaultHref="/" text="Atras" color="primary"></ion-back-button>
+
+
+  <ion-button>Activo</ion-button>
+  <ion-button [disabled]="true">Inactivo</ion-button>
+
+
+  <ion-button fill="outline">Sin relleno</ion-button>
+
+  <ion-button fill="outline">
+    <ion-icon slot="icon-only" name="home"></ion-icon>
+  </ion-button>
+
+
+  <ion-button expand="block">Block</ion-button>
+  <ion-button expand="full">Full</ion-button>
+
+
+  <ion-button shape="round">Redondo</ion-button>
+  <ion-button color="secondary">Color secundario</ion-button>
+
+
+  <ion-icon name="logo-ionic" size="large"></ion-icon>
+
+  <ion-item>
+    <ion-input label="Readonly input" value="Madison" [readonly]="true"></ion-input>
+  </ion-item>
+
+  <ion-avatar>
+    <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+  </ion-avatar>
+
+  <ion-button id="open-loading">Show Loading</ion-button>
+  <ion-loading trigger="open-loading" message="Dismissing after 3 seconds..." duration="3000"></ion-loading>
+
+  <ion-radio-group value="strawberries">
+    <ion-radio value="grapes">Grapes</ion-radio><br />
+  </ion-radio-group>
+
+</ion-content>

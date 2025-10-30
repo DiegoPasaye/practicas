@@ -1,0 +1,13 @@
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-back-button slot="start" defaultHref="/" text="Atras" color="primary"></ion-back-button>
+
+      <ion-title class="ion-text-capitalize" size="large">{{titulo}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-list>
+    <ion-item *ngFor="let item of elementos" [routerLink]="item.ruta" detail>
+      <ion-icon name="{{item.icono}}" slot="start"></ion-icon>
+      {{item.nombre}}
+    </ion-item>
+  </ion-list>

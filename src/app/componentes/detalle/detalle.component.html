@@ -1,80 +1,78 @@
-
+<!-- 1. Usa 'detallePersonaje' para el *ngIf -->
+<ion-header *ngIf="detallePersonaje">
+  <ion-toolbar>
+    <!-- 2. Usa 'detallePersonaje' para el título -->
+    <ion-title>{{ detallePersonaje.nombre }} {{ detallePersonaje.apellido }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="regresar()">Regresar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content>
-  <img [src]="personaje.avatar" alt=" avatar" class="imagen" *ngIf="personaje">
-  <ion-label *ngIf="personaje" class="titulo">
-    <h1>{{personaje.first_name}}</h1>
-  </ion-label>
+  <!-- 3. Usa 'detallePersonaje' para el *ngIf -->
+  <div *ngIf="detallePersonaje">
+    <!-- 4. Usa 'detallePersonaje.imagen' -->
+    <img [src]="detallePersonaje.imagen" alt="imagen" style="width: 100%;" *ngIf="detallePersonaje.imagen">
 
-  <ion-grid>
-    <ion-row>
-      <ion-col size="4" class="detalle">
-        <ion-card class="poster">
-          <img [src]="personaje.avatar" alt=" avatar" class="poster" *ngIf="personaje">
-        </ion-card>
-      </ion-col>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle>Descripción</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+              <!-- 5. Usa 'detallePersonaje.descripcion'. 'supportInfo' no existe -->
+              {{ detallePersonaje.descripcion }}
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
 
-      <ion-col>
-        <ion-item>
-          <ion-label>Armas: </ion-label>
-          <img src="../../../assets/img/bomba.png" alt="bomba image" class="icono">
-          <ion-note slot="end" color="primary">x10</ion-note>
-        </ion-item>
-      </ion-col>
-
-
-    </ion-row>
-  </ion-grid>
-
-
-
-  <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>Descripcion</ion-card-subtitle>
-    </ion-card-header>
-
-    <ion-card-content>
-      {{ supportInfo?.text }}
-    </ion-card-content>
-  </ion-card>
-
-
-  <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>
-        Estadisticas
-      </ion-card-subtitle>
-    </ion-card-header>
-
-    <ion-card-content>
-      <ion-list>
-        <ion-item>
-          <img src='../../../assets/img/heart.png' alt="hearth icon" class="icono">
-          <ion-label>Salud</ion-label>
-          <ion-note slot="end" color="primary">6</ion-note>
-        </ion-item>
-        <ion-item>
-          <img src='../../../assets/img/espada.png' alt="heaswordrth icon" class="icono">
-          <ion-label>Daño</ion-label>
-          <ion-note slot="end" color="primary">9</ion-note>
-        </ion-item>
-        <ion-item>
-          <img src='../../../assets/img/ejecutar.png' alt="speed icon" class="icono">
-          <ion-label>Velocidad</ion-label>
-          <ion-note slot="end" color="primary">2</ion-note>
-        </ion-item>
-      </ion-list>
-    </ion-card-content>
-  </ion-card>
-
-  <ion-footer no-border>
-    <ion-toolbar>
-      <ion-button slot="start" (click)="regresar()">
-        <ion-icon slot="start" name="arrow-round-black"></ion-icon>
-        <ion-label>Regresar</ion-label>
-      </ion-button>
-    </ion-toolbar>
-  </ion-footer>
-
-
+      <ion-row>
+        <ion-col size="12">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle>Estadísticas</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-list>
+                <!-- 6. Usa los datos de 'detallePersonaje' en lugar de números fijos -->
+                <ion-item>
+                  <img src='../../../assets/img/heart.png' alt="health icon" class="icono">
+                  <ion-label>Salud</ion-label>
+                  <ion-note slot="end" color="primary">{{ detallePersonaje.salud }}</ion-note>
+                </ion-item>
+                <ion-item>
+                  <img src='../../../assets/img/espada.png' alt="damage icon" class="icono">
+                  <ion-label>Daño</ion-label>
+                  <ion-note slot="end" color="primary">{{ detallePersonaje.salud }}</ion-note>
+                </ion-item>
+                <ion-item>
+                  <img src='../../../assets/img/ejecutar.png' alt="speed icon" class="icono">
+                  <ion-label>Velocidad</ion-label>
+                  <ion-note slot="end" color="primary">{{ detallePersonaje.velocidad }}</ion-note>
+                </ion-item>
+                <ion-item>
+                  <img src="../../../assets/img/bomba.png" alt="armas icon" class="icono">
+                  <ion-label>Armas</ion-label>
+                  <ion-note slot="end" color="primary">{{ detallePersonaje.armas }}</ion-note>
+                </ion-item>
+              </ion-list>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>
+
+<ion-footer no-border *ngIf="detallePersonaje">
+  <ion-toolbar>
+    <ion-button expand="full" (click)="regresar()">
+      <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+      Regresar
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

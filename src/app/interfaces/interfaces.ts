@@ -7,11 +7,32 @@ export interface RespuestaBD {
   support: InfGeneral;
 }
 export interface Personajes {
-  id: number;
-  email: string;
-  first_name: string;
-  last_name: string;
-  avatar: string;
+  // id: number;
+  // email: string;
+  // first_name: string;
+  // last_name: string;
+  // avatar: string;
+
+  id: string;
+  nombre: string;
+  apellido: string;
+  imagen: string;
+  descripcion: string;
+  armas: number;
+  daño: number;
+  salud: number;
+  velocidad: number;
+}
+export interface PersonajesFirebase {
+  id: string;
+  nombre: string;
+  apellido: string;
+  imagen: string;
+  descripcion: string;
+  armas: number;
+  daño: number;
+  salud: number;
+  velocidad: number;
 }
 
 

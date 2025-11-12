@@ -19,4 +19,15 @@ export class Personajes {
   getDatosById(id: number){
     return this.http.get<RespuestaDetalle>(`https://practicaangular-bc58e-default-rtdb.firebaseio.com/.json/${id}`)
   }
+
+  getPersonajes(){
+    const planetasCollection = collection(this.firestore, 'planetas');
+    return collectionData(planetasCollection, {
+      idField: 'id',
+    });
+  }
+  getPersonajesDetalle(id:string){
+    const planetaDoc = doc(this.firestore, `planetas/${id}`);
+    return docData(planetaDoc, { idField: 'id' });
+  }
 }

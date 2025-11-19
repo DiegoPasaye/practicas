@@ -1,7 +1,5 @@
-<!-- 1. Usa 'detallePersonaje' para el *ngIf -->
 <ion-header *ngIf="detallePersonaje">
   <ion-toolbar>
-    <!-- 2. Usa 'detallePersonaje' para el título -->
     <ion-title>{{ detallePersonaje.nombre }} {{ detallePersonaje.apellido }}</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="regresar()">Regresar</ion-button>
@@ -10,9 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <!-- 3. Usa 'detallePersonaje' para el *ngIf -->
   <div *ngIf="detallePersonaje">
-    <!-- 4. Usa 'detallePersonaje.imagen' -->
     <img [src]="detallePersonaje.imagen" alt="imagen" style="width: 100%;" *ngIf="detallePersonaje.imagen">
 
     <ion-grid>
@@ -23,7 +19,6 @@
               <ion-card-subtitle>Descripción</ion-card-subtitle>
             </ion-card-header>
             <ion-card-content>
-              <!-- 5. Usa 'detallePersonaje.descripcion'. 'supportInfo' no existe -->
               {{ detallePersonaje.descripcion }}
             </ion-card-content>
           </ion-card>
@@ -38,7 +33,6 @@
             </ion-card-header>
             <ion-card-content>
               <ion-list>
-                <!-- 6. Usa los datos de 'detallePersonaje' en lugar de números fijos -->
                 <ion-item>
                   <img src='../../../assets/img/heart.png' alt="health icon" class="icono">
                   <ion-label>Salud</ion-label>

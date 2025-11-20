@@ -1,19 +1,30 @@
 <ion-header>
   <ion-toolbar>
-   <ion-buttons slot="start">
-    <ion-menu-button></ion-menu-button>
+    <ion-buttons slot="start">
+      <ion-menu-button aria-label="Abrir menú lateral"></ion-menu-button>
     </ion-buttons>
 
     <ion-title>Inicio</ion-title>
   </ion-toolbar>
 </ion-header>
+
 <ion-content [fullscreen]="true">
-  <ion-header></ion-header>
-  <ion-card *ngFor="let personaje of personajesRecientes" (click)="verDetalle(personaje.id)">
-   <img [src]="personaje.imagen" style="height: 30vh; width: 60vh" >
-   <ion-card-header>
-     <ion-card-title>{{personaje.nombre}}</ion-card-title>
-     <ion-card-subtitle>{{personaje.apellido}}</ion-card-subtitle>
-   </ion-card-header>
+
+  <ion-card
+    *ngFor="let personaje of personajesRecientes"
+    (click)="verDetalle(personaje.id)"
+    button="true"
+  >
+    <img
+      [src]="personaje.imagen"
+      alt="Foto de {{personaje.nombre}} {{personaje.apellido}}"
+      loading="lazy"
+      style="height: 30vh; width: 60vh; object-fit: cover;"
+    >
+
+    <ion-card-header>
+      <ion-card-title>{{personaje.nombre}}</ion-card-title>
+      <ion-card-subtitle>{{personaje.apellido}}</ion-card-subtitle>
+    </ion-card-header>
   </ion-card>
 </ion-content>
